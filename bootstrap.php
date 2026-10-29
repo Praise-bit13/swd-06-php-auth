@@ -11,6 +11,7 @@ require_once __DIR__ . '/src/db.php';
 require_once __DIR__ . '/src/helpers.php';
 require_once __DIR__ . '/src/csrf.php';
 require_once __DIR__ . '/src/auth.php';
+require_once __DIR__ . '/src/layout.php';
 
 ini_set('session.use_strict_mode', '1');
 ini_set('session.use_only_cookies', '1');

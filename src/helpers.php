@@ -12,6 +12,23 @@ function redirect(string $location): never
     exit;
 }
 
+function app_url(string $path): string
+{
+    $scriptDirectory = str_replace(
+        '\\',
+        '/',
+        dirname((string) ($_SERVER['SCRIPT_NAME'] ?? '/'))
+    );
+    $isAdminDirectory = basename($scriptDirectory) === 'admin';
+    $normalizedPath = ltrim($path, '/');
+
+    if ($isAdminDirectory && str_starts_with($normalizedPath, 'admin/')) {
+        return substr($normalizedPath, strlen('admin/'));
+    }
+
+    return ($isAdminDirectory ? '../' : '') . $normalizedPath;
+}
+
 function flash(string $key, mixed $value = null): mixed
 {
     if (func_num_args() > 1) {

@@ -15,7 +15,7 @@ if ($user === false) {
     $_SESSION = [];
     session_regenerate_id(true);
     flash('error', 'Your account could not be found. Please sign in again.');
-    redirect('login.php');
+    redirect(app_url('login.php'));
 }
 
 $success = flash('success');
@@ -33,6 +33,7 @@ $lastLogin = $user['last_login_at'] === null
     <link rel="stylesheet" href="assets/auth.css">
 </head>
 <body>
+<?php render_navbar(); ?>
 <main class="auth-page">
     <section class="auth-card" aria-labelledby="page-title">
         <div class="auth-heading">

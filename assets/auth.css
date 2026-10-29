@@ -114,6 +114,120 @@ button:focus-visible {
     outline-offset: 3px;
 }
 
+.site-header {
+    border-bottom: 1px solid #e1e7f0;
+    background: #fff;
+}
+
+.site-nav {
+    display: flex;
+    width: min(100% - 32px, 1120px);
+    min-height: 64px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand,
+.nav-link {
+    color: #4058c6;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-actions form {
+    margin: 0;
+}
+
+.nav-button,
+.small-button {
+    width: auto;
+    min-height: 38px;
+    margin: 0;
+    padding: 8px 14px;
+}
+
+.button-link {
+    display: block;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: #4058c6;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.admin-page {
+    width: min(100% - 32px, 1200px);
+    margin: 40px auto;
+}
+
+.admin-panel {
+    padding: 32px;
+    border: 1px solid #e1e7f0;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 18px 55px rgb(34 54 88 / 10%);
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.user-table th,
+.user-table td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #e8edf4;
+    vertical-align: middle;
+}
+
+.user-table th {
+    color: #68748a;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.user-table td {
+    font-size: 0.88rem;
+}
+
+.role-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 175px;
+}
+
+.role-form select {
+    min-height: 38px;
+    padding: 6px 8px;
+    border: 1px solid #cbd4e2;
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+}
+
+.small-button {
+    min-height: 38px;
+    padding: 7px 11px;
+}
+
 .notice {
     margin: 0 0 22px;
     padding: 13px 15px;
@@ -173,5 +287,9 @@ button:focus-visible {
 @media (max-width: 480px) {
     .auth-card {
         padding: 30px 22px;
+    }
+
+    .admin-panel {
+        padding: 22px 16px;
     }
 }
