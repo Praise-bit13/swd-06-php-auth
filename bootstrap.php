@@ -7,6 +7,20 @@ error_reporting(E_ALL);
 ini_set('display_errors', APP_ENV === 'development' ? '1' : '0');
 ini_set('display_startup_errors', APP_ENV === 'development' ? '1' : '0');
 
+header('X-Frame-Options: DENY');
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+
+if (APP_ENV !== 'development' && !(
+    isset($_SERVER['HTTPS'])
+    && $_SERVER['HTTPS'] !== ''
+    && strtolower((string) $_SERVER['HTTPS']) !== 'off'
+)) {
+    http_response_code(400);
+    header('Content-Type: text/plain; charset=UTF-8');
+    exit('HTTPS is required.');
+}
+
 require_once __DIR__ . '/src/db.php';
 require_once __DIR__ . '/src/helpers.php';
 require_once __DIR__ . '/src/csrf.php';
@@ -21,7 +35,8 @@ session_set_cookie_params([
     'lifetime' => 0,
     'path' => '/',
     'domain' => '',
-    'secure' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== '' && strtolower((string) $_SERVER['HTTPS']) !== 'off',
+    'secure' => APP_ENV !== 'development'
+        || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== '' && strtolower((string) $_SERVER['HTTPS']) !== 'off'),
     'httponly' => true,
     'samesite' => 'Lax',
 ]);

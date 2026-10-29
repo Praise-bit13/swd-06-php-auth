@@ -13,6 +13,7 @@ function render_navbar(): void
         <nav class="site-nav" aria-label="Main navigation">
             <a class="brand" href="<?= e(app_url('dashboard.php')) ?>">SWD AUTH</a>
             <div class="nav-actions">
+                <a class="nav-link" href="<?= e(app_url('profile.php')) ?>">Profile</a>
                 <?php if ($user['role'] === 'admin'): ?>
                     <a class="nav-link" href="<?= e(app_url('admin/users.php')) ?>">Admin</a>
                 <?php endif; ?>

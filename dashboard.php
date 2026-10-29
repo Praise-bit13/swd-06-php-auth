@@ -56,10 +56,6 @@ $lastLogin = $user['last_login_at'] === null
             <div><dt>Last login</dt><dd><?= e($lastLogin) ?></dd></div>
         </dl>
 
-        <form method="post" action="logout.php">
-            <?= csrf_field() ?>
-            <button type="submit">Sign out</button>
-        </form>
     </section>
 </main>
 </body>
