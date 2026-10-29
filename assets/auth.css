@@ -144,6 +144,32 @@ button:focus-visible {
     color: #8c252e;
 }
 
+.account-details {
+    margin: 0 0 25px;
+    border-top: 1px solid #e8edf4;
+}
+
+.account-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e8edf4;
+}
+
+.account-details dt {
+    color: #68748a;
+    font-size: 0.9rem;
+}
+
+.account-details dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: right;
+}
+
 @media (max-width: 480px) {
     .auth-card {
         padding: 30px 22px;

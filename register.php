@@ -64,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
             $statement = db()->prepare(
-                'INSERT INTO users (name, email, password_hash) VALUES (:name, :email, :password_hash)'
+                'INSERT INTO users (name, email, password_hash, last_login_at)
+                 VALUES (:name, :email, :password_hash, CURRENT_TIMESTAMP)'
             );
             $statement->execute([
                 'name' => $name,
@@ -82,6 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($errors === []) {
             session_regenerate_id(true);
             $_SESSION['user_id'] = (int) db()->lastInsertId();
+            $_SESSION['role'] = 'user';
+            $_SESSION['last_activity'] = time();
             unset($_SESSION['_csrf_token']);
             flash('success', 'Your account has been created.');
             redirect('dashboard.php');
